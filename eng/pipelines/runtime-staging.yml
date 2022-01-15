@@ -219,7 +219,7 @@ jobs:
           eq(dependencies.evaluate_paths.outputs['SetPathVars_runtimetests.containsChange'], true),
           eq(dependencies.evaluate_paths.outputs['SetPathVars_mono.containsChange'], true),
           eq(variables['isRollingBuild'], true))
-      ${{ if eq(variables['isManualOrIsNotPR'], true) }}:
+      ${{ if eq(variables['isRollingBuild'], true) }}:
         # extra steps, run tests
         extraStepsTemplate: /eng/pipelines/common/templates/runtimes/android-runtime-and-send-to-helix.yml
         extraStepsParameters:
