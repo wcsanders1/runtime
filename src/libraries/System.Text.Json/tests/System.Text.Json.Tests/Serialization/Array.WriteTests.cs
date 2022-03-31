@@ -117,6 +117,15 @@ namespace System.Text.Json.Serialization.Tests
         }
 
         [Fact]
+        public static void WriteMultiDimensionalArray()
+        {
+            var input = new[,] { { 1, 2 }, { 3, 4 } };
+
+            var json = JsonSerializer.Serialize(input);
+            Assert.Equal("[[1,2],[3,4]]", json);
+        }
+
+        [Fact]
         public static void WriteEmpty()
         {
             string json = JsonSerializer.Serialize(new SimpleTestClass[] { });
